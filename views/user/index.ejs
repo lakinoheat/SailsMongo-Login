@@ -1,0 +1,100 @@
+<form action="/login" method="post">
+  <% if(flash && flash.err) { %>
+  <ul class="alert alert-sucess">
+    <% Object.keys(flash.err).forEach(function(error) { %>
+    <li><%- JSON.stringify(flash.err[error])%> </li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+
+  <br>
+  <br>
+
+  <div>
+    <h3>Login</h3>
+    <input type="text" id="lusername" name="lusername" placeholder="username" />
+    <input type="password" id="lpassword" name="lpassword" placeholder="password" />
+    <input type="submit" value="Login"/>
+    <br>
+<!--
+    <a id="signup_link" href="index.ejs"> SIGNUP </a>
+-->
+  </div>
+</form>
+
+<br>
+
+<form action="/signup" method="post">
+<!--<div>
+  <h3>Login</h3>
+  <input type="text" id="loginName" placeholder="name" />
+  <input type="password" id="loginPassword" placeholder="password" />
+  <button id="loginButton">Login</button>
+</div>-->
+<div>
+  <h3>Signup</h3>
+  <br>
+  <input type="text" id="username" name="username" placeholder="name" />
+  <input type="password" id="password" name="password" placeholder="password" />
+  <input type="password" id="signupConfirmPassword" placeholder="confirm password" />
+
+
+  <!--
+    <button id="signupButton">Signup</button>
+  -->
+  <input type="submit" value="Signup"/>
+</div>
+</form>
+
+<script>
+
+  /*$("#loginButton").click(function(){
+    var username = $("#loginName").val();
+    var password = $("#loginPassword").val();
+    if (username && password) {
+      $.post(
+        '/login',
+        {username: username, password:password},
+        function () {
+          window.location = "/home";
+        }
+      ).fail(function(res){
+          alert("Error: " + res.getResponseHeader("error"));
+        });
+    } else {
+      alert("A username and password is required");
+    }
+  });
+*/
+  /*function check(form)/!*function to check userid & password*!/
+  {
+    alert('he')
+
+    var username = getElementById('signupName').value;
+
+    /!*var username = $("#signupName").val();*!/
+
+    var password = $("#signupPassword").val();
+    var confirmPassword = $("#signupConfirmPassword").val();
+
+    if (username && password) {
+      if (password === confirmPassword) {
+        $.post(
+          '/signup',
+          {username: username, password:password},
+          function () {
+            window.location = "/home";
+          }
+        ).fail(function(res){
+            alert("Error: " + res.getResponseHeader("error"));
+          });
+      } else {
+        alert("Passwords don't match");
+      }
+    } else {
+      alert("A username and password is required");
+    }
+
+  }*/
+</script>
